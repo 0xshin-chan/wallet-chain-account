@@ -31,7 +31,11 @@ import (
 	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
 )
 
-const ChainName = "Ethereum"
+const (
+	ChainName           string = "Ethereum"
+	NativeTokenGasLimit string = "21000"
+	TokenGasLimit       string = "90000"
+)
 
 type ChainAdaptor struct {
 	ethClient     evmbase.EthClient
@@ -116,14 +120,58 @@ func (c ChainAdaptor) GetBlockByNumber(ctx context.Context, req *account.BlockNu
 	blockNumber, _ := block.NumberUint64()
 	var txListRet []*account.BlockInfoTransactionList
 	for _, v := range block.Transactions {
+
+		// v.Input erc20 转账
+		// 1：判断地址是否为合约地址， eth_getCode,返回 0x， 说明是 EOA， 返回的是 bytecode 说明是合约地址
+		addrCode, err := c.ethClient.EthGetCode(common.HexToAddress(v.To))
+		if err != nil {
+			log.Error("get code from eth err", err)
+			return nil, err
+		}
+		var toAddress string
+		var tokenAddress string
+		var decValue string
+		if addrCode == "contract" {
+			inputData := hexutil.Encode([]byte(v.Input[:]))
+			if len(inputData) < 138 {
+				// 输入数据太短，不符合ERC20 transfer的标准格式
+				continue
+			}
+			// transfer, safeTransfer, transferFrom
+			// 3. 判断是否是ERC20标准的 transfer 方法 (方法ID 0xa9059cbb)
+			if inputData[:10] != "0xa9059cbb" {
+				continue
+			}
+
+			toAddress = common.HexToAddress("0x" + inputData[34:74]).String()
+
+			trimHex := strings.TrimLeft(inputData[74:138], "0")
+			if len(trimHex) <= 0 {
+				continue
+			}
+
+			rawValue, err := hexutil.DecodeBig("0x" + trimHex)
+			if err != nil {
+				log.Error("decode big int fail", err)
+				continue
+			}
+			tokenAddress = v.To
+			decValue = decimal.NewFromBigInt(rawValue, 0).BigInt().String()
+		} else {
+			// 普通ETH转账
+			toAddress = v.To
+			tokenAddress = common.Address{}.String()
+			decValue = v.Value
+		}
+
 		bitlItem := &account.BlockInfoTransactionList{
 			From:           v.From,
-			To:             v.To,
-			TokenAddress:   v.To,
+			To:             toAddress,
+			TokenAddress:   tokenAddress,
 			ContractWallet: v.To,
 			Hash:           v.Hash,
 			Height:         blockNumber,
-			Amount:         v.Value,
+			Amount:         decValue,
 		}
 		txListRet = append(txListRet, bitlItem)
 	}
@@ -349,12 +397,29 @@ func (c ChainAdaptor) GetFee(ctx context.Context, req *account.FeeRequest) (*acc
 			Msg:  "get suggest gas price fail",
 		}, nil
 	}
+	log.Info("gasPrice and gasTipCap: ", "gasTipCap", gasTipCap, "gasPrice", gasPrice)
+
+	lw := &account.LegacyWallet{
+		GasPrice: gasPrice.String(),
+		GasLimit: TokenGasLimit,
+	}
+	eip1559w := &account.Eip1559Wallet{
+		GasLimit:       TokenGasLimit,
+		MaxFeePerGas:   gasPrice.String(),
+		MaxPriorityFee: gasTipCap.String(),
+	}
+	hdWallet := &account.HdWallet{ // todo: 使用 GasOracle
+		SlowFee:   eip1559w,
+		NormalFee: eip1559w,
+		FastFee:   eip1559w,
+	}
+
 	return &account.FeeResponse{
-		Code:      account.ReturnCode_SUCCESS,
-		Msg:       "get gas price success",
-		SlowFee:   gasPrice.String() + "|" + gasTipCap.String(),
-		NormalFee: gasPrice.String() + "|" + gasTipCap.String() + "|" + "*2",
-		FastFee:   gasPrice.String() + "|" + gasTipCap.String() + "|" + "*3",
+		Code:          account.ReturnCode_SUCCESS,
+		Msg:           "get gas price success",
+		LegacyWallet:  lw,
+		Eip1559Wallet: eip1559w,
+		HdWallet:      hdWallet,
 	}, nil
 }
 

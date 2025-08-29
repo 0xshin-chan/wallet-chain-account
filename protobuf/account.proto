@@ -164,6 +164,23 @@ message AccountResponse {
   string balance = 6;
 }
 
+message HdWallet {
+  Eip1559Wallet slow_fee = 1;
+  Eip1559Wallet normal_fee = 2;
+  Eip1559Wallet fast_fee = 3;
+}
+
+message LegacyWallet {
+  string gasPrice = 1;
+  string gasLimit = 2;
+}
+
+message Eip1559Wallet {
+  string maxPriorityFee = 1;
+  string maxFeePerGas = 2;
+  string gasLimit = 3;
+}
+
 message FeeRequest {
   string consumer_token = 1;
   string chain = 2;
@@ -176,9 +193,9 @@ message FeeRequest {
 message FeeResponse {
   ReturnCode code = 1;
   string msg = 2;
-  string slow_fee = 3;
-  string normal_fee = 4;
-  string fast_fee = 5;
+  HdWallet hdWallet = 3;
+  LegacyWallet legacyWallet = 4;
+  Eip1559Wallet eip1559Wallet = 5;
 }
 
 message SendTxRequest{
@@ -322,8 +339,8 @@ message NftAddressRequest{
 }
 
 message NftMessage {
-  string token_contract_address	= 1;
-  string token_id	 = 2;
+  string token_contract_address = 1;
+  string token_id = 2;
   string amount = 3;
   string token_name = 4;
   string token_url = 5;
@@ -338,7 +355,7 @@ message NftAddressResponse {
 }
 
 message NftCollectionMessage {
-  string token_id	= 1;
+  string token_id = 1;
   string holding_address_amount = 2;
   string token_url = 3;
   string protocol_type = 4;
@@ -354,7 +371,7 @@ message NftCollectionRequest {
   string consumer_token = 1;
   string chain = 2;
   string network = 3;
-  string token_contract_address	= 4;
+  string token_contract_address = 4;
   string filter_type = 5;
   string token_id = 6;
   uint32 page = 7;

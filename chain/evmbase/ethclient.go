@@ -31,6 +31,7 @@ type TransactionList struct {
 	To    string `json:"to"`
 	Hash  string `json:"hash"`
 	Value string `json:"value"`
+	Input string `json:"input"`
 }
 
 type RpcBlock struct {

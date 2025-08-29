@@ -55,9 +55,11 @@ func CreateLegacyUnSignTx(txData *types.LegacyTx, chainId *big.Int) string {
 }
 
 func CreateEip1559UnSignTx(txData *types.DynamicFeeTx, chainId *big.Int) (string, error) {
+	// 构造一笔交易
 	tx := types.NewTx(txData)
-	// 签名者
+	// 签名规则
 	signer := types.LatestSignerForChainID(chainId)
+	// 根据 eip1559 的规则，计算出待签名的 hash
 	txHash := signer.Hash(tx)
 	return txHash.String(), nil
 }

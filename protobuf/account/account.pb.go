@@ -1525,6 +1525,178 @@ func (x *AccountResponse) GetBalance() string {
 	return ""
 }
 
+type HdWallet struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SlowFee       *Eip1559Wallet         `protobuf:"bytes,1,opt,name=slow_fee,json=slowFee,proto3" json:"slow_fee,omitempty"`
+	NormalFee     *Eip1559Wallet         `protobuf:"bytes,2,opt,name=normal_fee,json=normalFee,proto3" json:"normal_fee,omitempty"`
+	FastFee       *Eip1559Wallet         `protobuf:"bytes,3,opt,name=fast_fee,json=fastFee,proto3" json:"fast_fee,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HdWallet) Reset() {
+	*x = HdWallet{}
+	mi := &file_protobuf_account_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HdWallet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HdWallet) ProtoMessage() {}
+
+func (x *HdWallet) ProtoReflect() protoreflect.Message {
+	mi := &file_protobuf_account_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HdWallet.ProtoReflect.Descriptor instead.
+func (*HdWallet) Descriptor() ([]byte, []int) {
+	return file_protobuf_account_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *HdWallet) GetSlowFee() *Eip1559Wallet {
+	if x != nil {
+		return x.SlowFee
+	}
+	return nil
+}
+
+func (x *HdWallet) GetNormalFee() *Eip1559Wallet {
+	if x != nil {
+		return x.NormalFee
+	}
+	return nil
+}
+
+func (x *HdWallet) GetFastFee() *Eip1559Wallet {
+	if x != nil {
+		return x.FastFee
+	}
+	return nil
+}
+
+type LegacyWallet struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	GasPrice      string                 `protobuf:"bytes,1,opt,name=gasPrice,proto3" json:"gasPrice,omitempty"`
+	GasLimit      string                 `protobuf:"bytes,2,opt,name=gasLimit,proto3" json:"gasLimit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LegacyWallet) Reset() {
+	*x = LegacyWallet{}
+	mi := &file_protobuf_account_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LegacyWallet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LegacyWallet) ProtoMessage() {}
+
+func (x *LegacyWallet) ProtoReflect() protoreflect.Message {
+	mi := &file_protobuf_account_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LegacyWallet.ProtoReflect.Descriptor instead.
+func (*LegacyWallet) Descriptor() ([]byte, []int) {
+	return file_protobuf_account_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *LegacyWallet) GetGasPrice() string {
+	if x != nil {
+		return x.GasPrice
+	}
+	return ""
+}
+
+func (x *LegacyWallet) GetGasLimit() string {
+	if x != nil {
+		return x.GasLimit
+	}
+	return ""
+}
+
+type Eip1559Wallet struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	MaxPriorityFee string                 `protobuf:"bytes,1,opt,name=maxPriorityFee,proto3" json:"maxPriorityFee,omitempty"`
+	MaxFeePerGas   string                 `protobuf:"bytes,2,opt,name=maxFeePerGas,proto3" json:"maxFeePerGas,omitempty"`
+	GasLimit       string                 `protobuf:"bytes,3,opt,name=gasLimit,proto3" json:"gasLimit,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *Eip1559Wallet) Reset() {
+	*x = Eip1559Wallet{}
+	mi := &file_protobuf_account_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Eip1559Wallet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Eip1559Wallet) ProtoMessage() {}
+
+func (x *Eip1559Wallet) ProtoReflect() protoreflect.Message {
+	mi := &file_protobuf_account_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Eip1559Wallet.ProtoReflect.Descriptor instead.
+func (*Eip1559Wallet) Descriptor() ([]byte, []int) {
+	return file_protobuf_account_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *Eip1559Wallet) GetMaxPriorityFee() string {
+	if x != nil {
+		return x.MaxPriorityFee
+	}
+	return ""
+}
+
+func (x *Eip1559Wallet) GetMaxFeePerGas() string {
+	if x != nil {
+		return x.MaxFeePerGas
+	}
+	return ""
+}
+
+func (x *Eip1559Wallet) GetGasLimit() string {
+	if x != nil {
+		return x.GasLimit
+	}
+	return ""
+}
+
 type FeeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ConsumerToken string                 `protobuf:"bytes,1,opt,name=consumer_token,json=consumerToken,proto3" json:"consumer_token,omitempty"`
@@ -1539,7 +1711,7 @@ type FeeRequest struct {
 
 func (x *FeeRequest) Reset() {
 	*x = FeeRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[18]
+	mi := &file_protobuf_account_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1551,7 +1723,7 @@ func (x *FeeRequest) String() string {
 func (*FeeRequest) ProtoMessage() {}
 
 func (x *FeeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[18]
+	mi := &file_protobuf_account_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1564,7 +1736,7 @@ func (x *FeeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FeeRequest.ProtoReflect.Descriptor instead.
 func (*FeeRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{18}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *FeeRequest) GetConsumerToken() string {
@@ -1613,16 +1785,16 @@ type FeeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          ReturnCode             `protobuf:"varint,1,opt,name=code,proto3,enum=ReturnCode" json:"code,omitempty"`
 	Msg           string                 `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
-	SlowFee       string                 `protobuf:"bytes,3,opt,name=slow_fee,json=slowFee,proto3" json:"slow_fee,omitempty"`
-	NormalFee     string                 `protobuf:"bytes,4,opt,name=normal_fee,json=normalFee,proto3" json:"normal_fee,omitempty"`
-	FastFee       string                 `protobuf:"bytes,5,opt,name=fast_fee,json=fastFee,proto3" json:"fast_fee,omitempty"`
+	HdWallet      *HdWallet              `protobuf:"bytes,3,opt,name=hdWallet,proto3" json:"hdWallet,omitempty"`
+	LegacyWallet  *LegacyWallet          `protobuf:"bytes,4,opt,name=legacyWallet,proto3" json:"legacyWallet,omitempty"`
+	Eip1559Wallet *Eip1559Wallet         `protobuf:"bytes,5,opt,name=eip1559Wallet,proto3" json:"eip1559Wallet,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FeeResponse) Reset() {
 	*x = FeeResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[19]
+	mi := &file_protobuf_account_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1634,7 +1806,7 @@ func (x *FeeResponse) String() string {
 func (*FeeResponse) ProtoMessage() {}
 
 func (x *FeeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[19]
+	mi := &file_protobuf_account_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1647,7 +1819,7 @@ func (x *FeeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FeeResponse.ProtoReflect.Descriptor instead.
 func (*FeeResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{19}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *FeeResponse) GetCode() ReturnCode {
@@ -1664,25 +1836,25 @@ func (x *FeeResponse) GetMsg() string {
 	return ""
 }
 
-func (x *FeeResponse) GetSlowFee() string {
+func (x *FeeResponse) GetHdWallet() *HdWallet {
 	if x != nil {
-		return x.SlowFee
+		return x.HdWallet
 	}
-	return ""
+	return nil
 }
 
-func (x *FeeResponse) GetNormalFee() string {
+func (x *FeeResponse) GetLegacyWallet() *LegacyWallet {
 	if x != nil {
-		return x.NormalFee
+		return x.LegacyWallet
 	}
-	return ""
+	return nil
 }
 
-func (x *FeeResponse) GetFastFee() string {
+func (x *FeeResponse) GetEip1559Wallet() *Eip1559Wallet {
 	if x != nil {
-		return x.FastFee
+		return x.Eip1559Wallet
 	}
-	return ""
+	return nil
 }
 
 type SendTxRequest struct {
@@ -1698,7 +1870,7 @@ type SendTxRequest struct {
 
 func (x *SendTxRequest) Reset() {
 	*x = SendTxRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[20]
+	mi := &file_protobuf_account_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1710,7 +1882,7 @@ func (x *SendTxRequest) String() string {
 func (*SendTxRequest) ProtoMessage() {}
 
 func (x *SendTxRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[20]
+	mi := &file_protobuf_account_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1723,7 +1895,7 @@ func (x *SendTxRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTxRequest.ProtoReflect.Descriptor instead.
 func (*SendTxRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{20}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SendTxRequest) GetConsumerToken() string {
@@ -1772,7 +1944,7 @@ type SendTxResponse struct {
 
 func (x *SendTxResponse) Reset() {
 	*x = SendTxResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[21]
+	mi := &file_protobuf_account_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1784,7 +1956,7 @@ func (x *SendTxResponse) String() string {
 func (*SendTxResponse) ProtoMessage() {}
 
 func (x *SendTxResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[21]
+	mi := &file_protobuf_account_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1797,7 +1969,7 @@ func (x *SendTxResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTxResponse.ProtoReflect.Descriptor instead.
 func (*SendTxResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{21}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SendTxResponse) GetCode() ReturnCode {
@@ -1837,7 +2009,7 @@ type TxAddressRequest struct {
 
 func (x *TxAddressRequest) Reset() {
 	*x = TxAddressRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[22]
+	mi := &file_protobuf_account_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1849,7 +2021,7 @@ func (x *TxAddressRequest) String() string {
 func (*TxAddressRequest) ProtoMessage() {}
 
 func (x *TxAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[22]
+	mi := &file_protobuf_account_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1862,7 +2034,7 @@ func (x *TxAddressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TxAddressRequest.ProtoReflect.Descriptor instead.
 func (*TxAddressRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{22}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *TxAddressRequest) GetConsumerToken() string {
@@ -1941,7 +2113,7 @@ type TxMessage struct {
 
 func (x *TxMessage) Reset() {
 	*x = TxMessage{}
-	mi := &file_protobuf_account_proto_msgTypes[23]
+	mi := &file_protobuf_account_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1953,7 +2125,7 @@ func (x *TxMessage) String() string {
 func (*TxMessage) ProtoMessage() {}
 
 func (x *TxMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[23]
+	mi := &file_protobuf_account_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1966,7 +2138,7 @@ func (x *TxMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TxMessage.ProtoReflect.Descriptor instead.
 func (*TxMessage) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{23}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *TxMessage) GetHash() string {
@@ -2064,7 +2236,7 @@ type TxAddressResponse struct {
 
 func (x *TxAddressResponse) Reset() {
 	*x = TxAddressResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[24]
+	mi := &file_protobuf_account_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2076,7 +2248,7 @@ func (x *TxAddressResponse) String() string {
 func (*TxAddressResponse) ProtoMessage() {}
 
 func (x *TxAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[24]
+	mi := &file_protobuf_account_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2089,7 +2261,7 @@ func (x *TxAddressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TxAddressResponse.ProtoReflect.Descriptor instead.
 func (*TxAddressResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{24}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *TxAddressResponse) GetCode() ReturnCode {
@@ -2126,7 +2298,7 @@ type TxHashRequest struct {
 
 func (x *TxHashRequest) Reset() {
 	*x = TxHashRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[25]
+	mi := &file_protobuf_account_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2138,7 +2310,7 @@ func (x *TxHashRequest) String() string {
 func (*TxHashRequest) ProtoMessage() {}
 
 func (x *TxHashRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[25]
+	mi := &file_protobuf_account_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2151,7 +2323,7 @@ func (x *TxHashRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TxHashRequest.ProtoReflect.Descriptor instead.
 func (*TxHashRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{25}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *TxHashRequest) GetConsumerToken() string {
@@ -2200,7 +2372,7 @@ type TxHashResponse struct {
 
 func (x *TxHashResponse) Reset() {
 	*x = TxHashResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[26]
+	mi := &file_protobuf_account_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2212,7 +2384,7 @@ func (x *TxHashResponse) String() string {
 func (*TxHashResponse) ProtoMessage() {}
 
 func (x *TxHashResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[26]
+	mi := &file_protobuf_account_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2225,7 +2397,7 @@ func (x *TxHashResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TxHashResponse.ProtoReflect.Descriptor instead.
 func (*TxHashResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{26}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *TxHashResponse) GetCode() ReturnCode {
@@ -2261,7 +2433,7 @@ type UnSignTransactionRequest struct {
 
 func (x *UnSignTransactionRequest) Reset() {
 	*x = UnSignTransactionRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[27]
+	mi := &file_protobuf_account_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2273,7 +2445,7 @@ func (x *UnSignTransactionRequest) String() string {
 func (*UnSignTransactionRequest) ProtoMessage() {}
 
 func (x *UnSignTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[27]
+	mi := &file_protobuf_account_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2286,7 +2458,7 @@ func (x *UnSignTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnSignTransactionRequest.ProtoReflect.Descriptor instead.
 func (*UnSignTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{27}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *UnSignTransactionRequest) GetConsumerToken() string {
@@ -2328,7 +2500,7 @@ type UnSignTransactionResponse struct {
 
 func (x *UnSignTransactionResponse) Reset() {
 	*x = UnSignTransactionResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[28]
+	mi := &file_protobuf_account_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2340,7 +2512,7 @@ func (x *UnSignTransactionResponse) String() string {
 func (*UnSignTransactionResponse) ProtoMessage() {}
 
 func (x *UnSignTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[28]
+	mi := &file_protobuf_account_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2353,7 +2525,7 @@ func (x *UnSignTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnSignTransactionResponse.ProtoReflect.Descriptor instead.
 func (*UnSignTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{28}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *UnSignTransactionResponse) GetCode() ReturnCode {
@@ -2391,7 +2563,7 @@ type SignedTransactionRequest struct {
 
 func (x *SignedTransactionRequest) Reset() {
 	*x = SignedTransactionRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[29]
+	mi := &file_protobuf_account_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2403,7 +2575,7 @@ func (x *SignedTransactionRequest) String() string {
 func (*SignedTransactionRequest) ProtoMessage() {}
 
 func (x *SignedTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[29]
+	mi := &file_protobuf_account_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2416,7 +2588,7 @@ func (x *SignedTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignedTransactionRequest.ProtoReflect.Descriptor instead.
 func (*SignedTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{29}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SignedTransactionRequest) GetConsumerToken() string {
@@ -2472,7 +2644,7 @@ type SignedTransactionResponse struct {
 
 func (x *SignedTransactionResponse) Reset() {
 	*x = SignedTransactionResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[30]
+	mi := &file_protobuf_account_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2484,7 +2656,7 @@ func (x *SignedTransactionResponse) String() string {
 func (*SignedTransactionResponse) ProtoMessage() {}
 
 func (x *SignedTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[30]
+	mi := &file_protobuf_account_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2497,7 +2669,7 @@ func (x *SignedTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignedTransactionResponse.ProtoReflect.Descriptor instead.
 func (*SignedTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{30}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *SignedTransactionResponse) GetCode() ReturnCode {
@@ -2533,7 +2705,7 @@ type DecodeTransactionRequest struct {
 
 func (x *DecodeTransactionRequest) Reset() {
 	*x = DecodeTransactionRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[31]
+	mi := &file_protobuf_account_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2545,7 +2717,7 @@ func (x *DecodeTransactionRequest) String() string {
 func (*DecodeTransactionRequest) ProtoMessage() {}
 
 func (x *DecodeTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[31]
+	mi := &file_protobuf_account_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2558,7 +2730,7 @@ func (x *DecodeTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecodeTransactionRequest.ProtoReflect.Descriptor instead.
 func (*DecodeTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{31}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *DecodeTransactionRequest) GetConsumerToken() string {
@@ -2600,7 +2772,7 @@ type DecodeTransactionResponse struct {
 
 func (x *DecodeTransactionResponse) Reset() {
 	*x = DecodeTransactionResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[32]
+	mi := &file_protobuf_account_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2612,7 +2784,7 @@ func (x *DecodeTransactionResponse) String() string {
 func (*DecodeTransactionResponse) ProtoMessage() {}
 
 func (x *DecodeTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[32]
+	mi := &file_protobuf_account_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2625,7 +2797,7 @@ func (x *DecodeTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecodeTransactionResponse.ProtoReflect.Descriptor instead.
 func (*DecodeTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{32}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *DecodeTransactionResponse) GetCode() ReturnCode {
@@ -2662,7 +2834,7 @@ type VerifyTransactionRequest struct {
 
 func (x *VerifyTransactionRequest) Reset() {
 	*x = VerifyTransactionRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[33]
+	mi := &file_protobuf_account_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2674,7 +2846,7 @@ func (x *VerifyTransactionRequest) String() string {
 func (*VerifyTransactionRequest) ProtoMessage() {}
 
 func (x *VerifyTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[33]
+	mi := &file_protobuf_account_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2687,7 +2859,7 @@ func (x *VerifyTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyTransactionRequest.ProtoReflect.Descriptor instead.
 func (*VerifyTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{33}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *VerifyTransactionRequest) GetConsumerToken() string {
@@ -2736,7 +2908,7 @@ type VerifyTransactionResponse struct {
 
 func (x *VerifyTransactionResponse) Reset() {
 	*x = VerifyTransactionResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[34]
+	mi := &file_protobuf_account_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2748,7 +2920,7 @@ func (x *VerifyTransactionResponse) String() string {
 func (*VerifyTransactionResponse) ProtoMessage() {}
 
 func (x *VerifyTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[34]
+	mi := &file_protobuf_account_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2761,7 +2933,7 @@ func (x *VerifyTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyTransactionResponse.ProtoReflect.Descriptor instead.
 func (*VerifyTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{34}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *VerifyTransactionResponse) GetCode() ReturnCode {
@@ -2798,7 +2970,7 @@ type ExtraDataRequest struct {
 
 func (x *ExtraDataRequest) Reset() {
 	*x = ExtraDataRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[35]
+	mi := &file_protobuf_account_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2810,7 +2982,7 @@ func (x *ExtraDataRequest) String() string {
 func (*ExtraDataRequest) ProtoMessage() {}
 
 func (x *ExtraDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[35]
+	mi := &file_protobuf_account_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2823,7 +2995,7 @@ func (x *ExtraDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExtraDataRequest.ProtoReflect.Descriptor instead.
 func (*ExtraDataRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{35}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *ExtraDataRequest) GetConsumerToken() string {
@@ -2872,7 +3044,7 @@ type ExtraDataResponse struct {
 
 func (x *ExtraDataResponse) Reset() {
 	*x = ExtraDataResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[36]
+	mi := &file_protobuf_account_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2884,7 +3056,7 @@ func (x *ExtraDataResponse) String() string {
 func (*ExtraDataResponse) ProtoMessage() {}
 
 func (x *ExtraDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[36]
+	mi := &file_protobuf_account_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2897,7 +3069,7 @@ func (x *ExtraDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExtraDataResponse.ProtoReflect.Descriptor instead.
 func (*ExtraDataResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{36}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *ExtraDataResponse) GetCode() ReturnCode {
@@ -2937,7 +3109,7 @@ type NftAddressRequest struct {
 
 func (x *NftAddressRequest) Reset() {
 	*x = NftAddressRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[37]
+	mi := &file_protobuf_account_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2949,7 +3121,7 @@ func (x *NftAddressRequest) String() string {
 func (*NftAddressRequest) ProtoMessage() {}
 
 func (x *NftAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[37]
+	mi := &file_protobuf_account_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2962,7 +3134,7 @@ func (x *NftAddressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftAddressRequest.ProtoReflect.Descriptor instead.
 func (*NftAddressRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{37}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *NftAddressRequest) GetConsumerToken() string {
@@ -3036,7 +3208,7 @@ type NftMessage struct {
 
 func (x *NftMessage) Reset() {
 	*x = NftMessage{}
-	mi := &file_protobuf_account_proto_msgTypes[38]
+	mi := &file_protobuf_account_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3048,7 +3220,7 @@ func (x *NftMessage) String() string {
 func (*NftMessage) ProtoMessage() {}
 
 func (x *NftMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[38]
+	mi := &file_protobuf_account_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3061,7 +3233,7 @@ func (x *NftMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftMessage.ProtoReflect.Descriptor instead.
 func (*NftMessage) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{38}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *NftMessage) GetTokenContractAddress() string {
@@ -3124,7 +3296,7 @@ type NftAddressResponse struct {
 
 func (x *NftAddressResponse) Reset() {
 	*x = NftAddressResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[39]
+	mi := &file_protobuf_account_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3136,7 +3308,7 @@ func (x *NftAddressResponse) String() string {
 func (*NftAddressResponse) ProtoMessage() {}
 
 func (x *NftAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[39]
+	mi := &file_protobuf_account_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3149,7 +3321,7 @@ func (x *NftAddressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftAddressResponse.ProtoReflect.Descriptor instead.
 func (*NftAddressResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{39}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *NftAddressResponse) GetCode() ReturnCode {
@@ -3191,7 +3363,7 @@ type NftCollectionMessage struct {
 
 func (x *NftCollectionMessage) Reset() {
 	*x = NftCollectionMessage{}
-	mi := &file_protobuf_account_proto_msgTypes[40]
+	mi := &file_protobuf_account_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3203,7 +3375,7 @@ func (x *NftCollectionMessage) String() string {
 func (*NftCollectionMessage) ProtoMessage() {}
 
 func (x *NftCollectionMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[40]
+	mi := &file_protobuf_account_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3216,7 +3388,7 @@ func (x *NftCollectionMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftCollectionMessage.ProtoReflect.Descriptor instead.
 func (*NftCollectionMessage) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{40}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *NftCollectionMessage) GetTokenId() string {
@@ -3305,7 +3477,7 @@ type NftCollectionRequest struct {
 
 func (x *NftCollectionRequest) Reset() {
 	*x = NftCollectionRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[41]
+	mi := &file_protobuf_account_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3317,7 +3489,7 @@ func (x *NftCollectionRequest) String() string {
 func (*NftCollectionRequest) ProtoMessage() {}
 
 func (x *NftCollectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[41]
+	mi := &file_protobuf_account_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3330,7 +3502,7 @@ func (x *NftCollectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftCollectionRequest.ProtoReflect.Descriptor instead.
 func (*NftCollectionRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{41}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *NftCollectionRequest) GetConsumerToken() string {
@@ -3400,7 +3572,7 @@ type NftCollectionResponse struct {
 
 func (x *NftCollectionResponse) Reset() {
 	*x = NftCollectionResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[42]
+	mi := &file_protobuf_account_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3412,7 +3584,7 @@ func (x *NftCollectionResponse) String() string {
 func (*NftCollectionResponse) ProtoMessage() {}
 
 func (x *NftCollectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[42]
+	mi := &file_protobuf_account_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3425,7 +3597,7 @@ func (x *NftCollectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftCollectionResponse.ProtoReflect.Descriptor instead.
 func (*NftCollectionResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{42}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *NftCollectionResponse) GetCode() ReturnCode {
@@ -3457,7 +3629,7 @@ type NftDetailRequest struct {
 
 func (x *NftDetailRequest) Reset() {
 	*x = NftDetailRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[43]
+	mi := &file_protobuf_account_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3469,7 +3641,7 @@ func (x *NftDetailRequest) String() string {
 func (*NftDetailRequest) ProtoMessage() {}
 
 func (x *NftDetailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[43]
+	mi := &file_protobuf_account_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3482,7 +3654,7 @@ func (x *NftDetailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftDetailRequest.ProtoReflect.Descriptor instead.
 func (*NftDetailRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{43}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{46}
 }
 
 type NftDetailResponse struct {
@@ -3493,7 +3665,7 @@ type NftDetailResponse struct {
 
 func (x *NftDetailResponse) Reset() {
 	*x = NftDetailResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[44]
+	mi := &file_protobuf_account_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3505,7 +3677,7 @@ func (x *NftDetailResponse) String() string {
 func (*NftDetailResponse) ProtoMessage() {}
 
 func (x *NftDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[44]
+	mi := &file_protobuf_account_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3518,7 +3690,7 @@ func (x *NftDetailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftDetailResponse.ProtoReflect.Descriptor instead.
 func (*NftDetailResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{44}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{47}
 }
 
 type NftHolderListRequest struct {
@@ -3529,7 +3701,7 @@ type NftHolderListRequest struct {
 
 func (x *NftHolderListRequest) Reset() {
 	*x = NftHolderListRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[45]
+	mi := &file_protobuf_account_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3541,7 +3713,7 @@ func (x *NftHolderListRequest) String() string {
 func (*NftHolderListRequest) ProtoMessage() {}
 
 func (x *NftHolderListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[45]
+	mi := &file_protobuf_account_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3554,7 +3726,7 @@ func (x *NftHolderListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftHolderListRequest.ProtoReflect.Descriptor instead.
 func (*NftHolderListRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{45}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{48}
 }
 
 type NftHolderListResponse struct {
@@ -3565,7 +3737,7 @@ type NftHolderListResponse struct {
 
 func (x *NftHolderListResponse) Reset() {
 	*x = NftHolderListResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[46]
+	mi := &file_protobuf_account_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3577,7 +3749,7 @@ func (x *NftHolderListResponse) String() string {
 func (*NftHolderListResponse) ProtoMessage() {}
 
 func (x *NftHolderListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[46]
+	mi := &file_protobuf_account_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3590,7 +3762,7 @@ func (x *NftHolderListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftHolderListResponse.ProtoReflect.Descriptor instead.
 func (*NftHolderListResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{46}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{49}
 }
 
 type NftTradeHistoryRequest struct {
@@ -3601,7 +3773,7 @@ type NftTradeHistoryRequest struct {
 
 func (x *NftTradeHistoryRequest) Reset() {
 	*x = NftTradeHistoryRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[47]
+	mi := &file_protobuf_account_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3613,7 +3785,7 @@ func (x *NftTradeHistoryRequest) String() string {
 func (*NftTradeHistoryRequest) ProtoMessage() {}
 
 func (x *NftTradeHistoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[47]
+	mi := &file_protobuf_account_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3626,7 +3798,7 @@ func (x *NftTradeHistoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftTradeHistoryRequest.ProtoReflect.Descriptor instead.
 func (*NftTradeHistoryRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{47}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{50}
 }
 
 type NftTradeHistoryResponse struct {
@@ -3637,7 +3809,7 @@ type NftTradeHistoryResponse struct {
 
 func (x *NftTradeHistoryResponse) Reset() {
 	*x = NftTradeHistoryResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[48]
+	mi := &file_protobuf_account_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3649,7 +3821,7 @@ func (x *NftTradeHistoryResponse) String() string {
 func (*NftTradeHistoryResponse) ProtoMessage() {}
 
 func (x *NftTradeHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[48]
+	mi := &file_protobuf_account_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3662,7 +3834,7 @@ func (x *NftTradeHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NftTradeHistoryResponse.ProtoReflect.Descriptor instead.
 func (*NftTradeHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{48}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{51}
 }
 
 type AddressNftTradeHistoryRequest struct {
@@ -3673,7 +3845,7 @@ type AddressNftTradeHistoryRequest struct {
 
 func (x *AddressNftTradeHistoryRequest) Reset() {
 	*x = AddressNftTradeHistoryRequest{}
-	mi := &file_protobuf_account_proto_msgTypes[49]
+	mi := &file_protobuf_account_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3685,7 +3857,7 @@ func (x *AddressNftTradeHistoryRequest) String() string {
 func (*AddressNftTradeHistoryRequest) ProtoMessage() {}
 
 func (x *AddressNftTradeHistoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[49]
+	mi := &file_protobuf_account_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3698,7 +3870,7 @@ func (x *AddressNftTradeHistoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddressNftTradeHistoryRequest.ProtoReflect.Descriptor instead.
 func (*AddressNftTradeHistoryRequest) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{49}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{52}
 }
 
 type AddressNftTradeHistoryResponse struct {
@@ -3709,7 +3881,7 @@ type AddressNftTradeHistoryResponse struct {
 
 func (x *AddressNftTradeHistoryResponse) Reset() {
 	*x = AddressNftTradeHistoryResponse{}
-	mi := &file_protobuf_account_proto_msgTypes[50]
+	mi := &file_protobuf_account_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3721,7 +3893,7 @@ func (x *AddressNftTradeHistoryResponse) String() string {
 func (*AddressNftTradeHistoryResponse) ProtoMessage() {}
 
 func (x *AddressNftTradeHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protobuf_account_proto_msgTypes[50]
+	mi := &file_protobuf_account_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3734,7 +3906,7 @@ func (x *AddressNftTradeHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddressNftTradeHistoryResponse.ProtoReflect.Descriptor instead.
 func (*AddressNftTradeHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_protobuf_account_proto_rawDescGZIP(), []int{50}
+	return file_protobuf_account_proto_rawDescGZIP(), []int{53}
 }
 
 var File_protobuf_account_proto protoreflect.FileDescriptor
@@ -3860,7 +4032,19 @@ const file_protobuf_account_proto_rawDesc = "" +
 	"\anetwork\x18\x03 \x01(\tR\anetwork\x12%\n" +
 	"\x0eaccount_number\x18\x04 \x01(\tR\raccountNumber\x12\x1a\n" +
 	"\bsequence\x18\x05 \x01(\tR\bsequence\x12\x18\n" +
-	"\abalance\x18\x06 \x01(\tR\abalance\"\xa7\x01\n" +
+	"\abalance\x18\x06 \x01(\tR\abalance\"\x8f\x01\n" +
+	"\bHdWallet\x12)\n" +
+	"\bslow_fee\x18\x01 \x01(\v2\x0e.Eip1559WalletR\aslowFee\x12-\n" +
+	"\n" +
+	"normal_fee\x18\x02 \x01(\v2\x0e.Eip1559WalletR\tnormalFee\x12)\n" +
+	"\bfast_fee\x18\x03 \x01(\v2\x0e.Eip1559WalletR\afastFee\"F\n" +
+	"\fLegacyWallet\x12\x1a\n" +
+	"\bgasPrice\x18\x01 \x01(\tR\bgasPrice\x12\x1a\n" +
+	"\bgasLimit\x18\x02 \x01(\tR\bgasLimit\"w\n" +
+	"\rEip1559Wallet\x12&\n" +
+	"\x0emaxPriorityFee\x18\x01 \x01(\tR\x0emaxPriorityFee\x12\"\n" +
+	"\fmaxFeePerGas\x18\x02 \x01(\tR\fmaxFeePerGas\x12\x1a\n" +
+	"\bgasLimit\x18\x03 \x01(\tR\bgasLimit\"\xa7\x01\n" +
 	"\n" +
 	"FeeRequest\x12%\n" +
 	"\x0econsumer_token\x18\x01 \x01(\tR\rconsumerToken\x12\x14\n" +
@@ -3868,14 +4052,13 @@ const file_protobuf_account_proto_rawDesc = "" +
 	"\x04coin\x18\x03 \x01(\tR\x04coin\x12\x18\n" +
 	"\anetwork\x18\x04 \x01(\tR\anetwork\x12\x14\n" +
 	"\x05rawTx\x18\x05 \x01(\tR\x05rawTx\x12\x18\n" +
-	"\aaddress\x18\x06 \x01(\tR\aaddress\"\x95\x01\n" +
+	"\aaddress\x18\x06 \x01(\tR\aaddress\"\xd0\x01\n" +
 	"\vFeeResponse\x12\x1f\n" +
 	"\x04code\x18\x01 \x01(\x0e2\v.ReturnCodeR\x04code\x12\x10\n" +
-	"\x03msg\x18\x02 \x01(\tR\x03msg\x12\x19\n" +
-	"\bslow_fee\x18\x03 \x01(\tR\aslowFee\x12\x1d\n" +
-	"\n" +
-	"normal_fee\x18\x04 \x01(\tR\tnormalFee\x12\x19\n" +
-	"\bfast_fee\x18\x05 \x01(\tR\afastFee\"\x91\x01\n" +
+	"\x03msg\x18\x02 \x01(\tR\x03msg\x12%\n" +
+	"\bhdWallet\x18\x03 \x01(\v2\t.HdWalletR\bhdWallet\x121\n" +
+	"\flegacyWallet\x18\x04 \x01(\v2\r.LegacyWalletR\flegacyWallet\x124\n" +
+	"\reip1559Wallet\x18\x05 \x01(\v2\x0e.Eip1559WalletR\reip1559Wallet\"\x91\x01\n" +
 	"\rSendTxRequest\x12%\n" +
 	"\x0econsumer_token\x18\x01 \x01(\tR\rconsumerToken\x12\x14\n" +
 	"\x05chain\x18\x02 \x01(\tR\x05chain\x12\x12\n" +
@@ -4087,7 +4270,7 @@ func file_protobuf_account_proto_rawDescGZIP() []byte {
 }
 
 var file_protobuf_account_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_protobuf_account_proto_msgTypes = make([]protoimpl.MessageInfo, 51)
+var file_protobuf_account_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
 var file_protobuf_account_proto_goTypes = []any{
 	(ReturnCode)(0),                        // 0: ReturnCode
 	(TxStatus)(0),                          // 1: TxStatus
@@ -4109,39 +4292,42 @@ var file_protobuf_account_proto_goTypes = []any{
 	(*BlockByRangeResponse)(nil),           // 17: BlockByRangeResponse
 	(*AccountRequest)(nil),                 // 18: AccountRequest
 	(*AccountResponse)(nil),                // 19: AccountResponse
-	(*FeeRequest)(nil),                     // 20: FeeRequest
-	(*FeeResponse)(nil),                    // 21: FeeResponse
-	(*SendTxRequest)(nil),                  // 22: SendTxRequest
-	(*SendTxResponse)(nil),                 // 23: SendTxResponse
-	(*TxAddressRequest)(nil),               // 24: TxAddressRequest
-	(*TxMessage)(nil),                      // 25: TxMessage
-	(*TxAddressResponse)(nil),              // 26: TxAddressResponse
-	(*TxHashRequest)(nil),                  // 27: TxHashRequest
-	(*TxHashResponse)(nil),                 // 28: TxHashResponse
-	(*UnSignTransactionRequest)(nil),       // 29: UnSignTransactionRequest
-	(*UnSignTransactionResponse)(nil),      // 30: UnSignTransactionResponse
-	(*SignedTransactionRequest)(nil),       // 31: SignedTransactionRequest
-	(*SignedTransactionResponse)(nil),      // 32: SignedTransactionResponse
-	(*DecodeTransactionRequest)(nil),       // 33: DecodeTransactionRequest
-	(*DecodeTransactionResponse)(nil),      // 34: DecodeTransactionResponse
-	(*VerifyTransactionRequest)(nil),       // 35: VerifyTransactionRequest
-	(*VerifyTransactionResponse)(nil),      // 36: VerifyTransactionResponse
-	(*ExtraDataRequest)(nil),               // 37: ExtraDataRequest
-	(*ExtraDataResponse)(nil),              // 38: ExtraDataResponse
-	(*NftAddressRequest)(nil),              // 39: NftAddressRequest
-	(*NftMessage)(nil),                     // 40: NftMessage
-	(*NftAddressResponse)(nil),             // 41: NftAddressResponse
-	(*NftCollectionMessage)(nil),           // 42: NftCollectionMessage
-	(*NftCollectionRequest)(nil),           // 43: NftCollectionRequest
-	(*NftCollectionResponse)(nil),          // 44: NftCollectionResponse
-	(*NftDetailRequest)(nil),               // 45: NftDetailRequest
-	(*NftDetailResponse)(nil),              // 46: NftDetailResponse
-	(*NftHolderListRequest)(nil),           // 47: NftHolderListRequest
-	(*NftHolderListResponse)(nil),          // 48: NftHolderListResponse
-	(*NftTradeHistoryRequest)(nil),         // 49: NftTradeHistoryRequest
-	(*NftTradeHistoryResponse)(nil),        // 50: NftTradeHistoryResponse
-	(*AddressNftTradeHistoryRequest)(nil),  // 51: AddressNftTradeHistoryRequest
-	(*AddressNftTradeHistoryResponse)(nil), // 52: AddressNftTradeHistoryResponse
+	(*HdWallet)(nil),                       // 20: HdWallet
+	(*LegacyWallet)(nil),                   // 21: LegacyWallet
+	(*Eip1559Wallet)(nil),                  // 22: Eip1559Wallet
+	(*FeeRequest)(nil),                     // 23: FeeRequest
+	(*FeeResponse)(nil),                    // 24: FeeResponse
+	(*SendTxRequest)(nil),                  // 25: SendTxRequest
+	(*SendTxResponse)(nil),                 // 26: SendTxResponse
+	(*TxAddressRequest)(nil),               // 27: TxAddressRequest
+	(*TxMessage)(nil),                      // 28: TxMessage
+	(*TxAddressResponse)(nil),              // 29: TxAddressResponse
+	(*TxHashRequest)(nil),                  // 30: TxHashRequest
+	(*TxHashResponse)(nil),                 // 31: TxHashResponse
+	(*UnSignTransactionRequest)(nil),       // 32: UnSignTransactionRequest
+	(*UnSignTransactionResponse)(nil),      // 33: UnSignTransactionResponse
+	(*SignedTransactionRequest)(nil),       // 34: SignedTransactionRequest
+	(*SignedTransactionResponse)(nil),      // 35: SignedTransactionResponse
+	(*DecodeTransactionRequest)(nil),       // 36: DecodeTransactionRequest
+	(*DecodeTransactionResponse)(nil),      // 37: DecodeTransactionResponse
+	(*VerifyTransactionRequest)(nil),       // 38: VerifyTransactionRequest
+	(*VerifyTransactionResponse)(nil),      // 39: VerifyTransactionResponse
+	(*ExtraDataRequest)(nil),               // 40: ExtraDataRequest
+	(*ExtraDataResponse)(nil),              // 41: ExtraDataResponse
+	(*NftAddressRequest)(nil),              // 42: NftAddressRequest
+	(*NftMessage)(nil),                     // 43: NftMessage
+	(*NftAddressResponse)(nil),             // 44: NftAddressResponse
+	(*NftCollectionMessage)(nil),           // 45: NftCollectionMessage
+	(*NftCollectionRequest)(nil),           // 46: NftCollectionRequest
+	(*NftCollectionResponse)(nil),          // 47: NftCollectionResponse
+	(*NftDetailRequest)(nil),               // 48: NftDetailRequest
+	(*NftDetailResponse)(nil),              // 49: NftDetailResponse
+	(*NftHolderListRequest)(nil),           // 50: NftHolderListRequest
+	(*NftHolderListResponse)(nil),          // 51: NftHolderListResponse
+	(*NftTradeHistoryRequest)(nil),         // 52: NftTradeHistoryRequest
+	(*NftTradeHistoryResponse)(nil),        // 53: NftTradeHistoryResponse
+	(*AddressNftTradeHistoryRequest)(nil),  // 54: AddressNftTradeHistoryRequest
+	(*AddressNftTradeHistoryResponse)(nil), // 55: AddressNftTradeHistoryResponse
 }
 var file_protobuf_account_proto_depIdxs = []int32{
 	0,  // 0: SupportChainsResponse.code:type_name -> ReturnCode
@@ -4154,75 +4340,81 @@ var file_protobuf_account_proto_depIdxs = []int32{
 	0,  // 7: BlockByRangeResponse.code:type_name -> ReturnCode
 	14, // 8: BlockByRangeResponse.block_header:type_name -> BlockHeader
 	0,  // 9: AccountResponse.code:type_name -> ReturnCode
-	0,  // 10: FeeResponse.code:type_name -> ReturnCode
-	0,  // 11: SendTxResponse.code:type_name -> ReturnCode
-	1,  // 12: TxMessage.status:type_name -> TxStatus
-	0,  // 13: TxAddressResponse.code:type_name -> ReturnCode
-	25, // 14: TxAddressResponse.tx:type_name -> TxMessage
-	0,  // 15: TxHashResponse.code:type_name -> ReturnCode
-	25, // 16: TxHashResponse.tx:type_name -> TxMessage
-	0,  // 17: UnSignTransactionResponse.code:type_name -> ReturnCode
-	0,  // 18: SignedTransactionResponse.code:type_name -> ReturnCode
-	0,  // 19: DecodeTransactionResponse.code:type_name -> ReturnCode
-	0,  // 20: VerifyTransactionResponse.code:type_name -> ReturnCode
-	0,  // 21: ExtraDataResponse.code:type_name -> ReturnCode
-	0,  // 22: NftAddressResponse.code:type_name -> ReturnCode
-	40, // 23: NftAddressResponse.nft_info:type_name -> NftMessage
-	0,  // 24: NftCollectionResponse.code:type_name -> ReturnCode
-	42, // 25: NftCollectionResponse.nft_collection_message:type_name -> NftCollectionMessage
-	2,  // 26: WalletAccountService.getSupportChains:input_type -> SupportChainsRequest
-	4,  // 27: WalletAccountService.convertAddress:input_type -> ConvertAddressRequest
-	6,  // 28: WalletAccountService.validAddress:input_type -> ValidAddressRequest
-	8,  // 29: WalletAccountService.getBlockByNumber:input_type -> BlockNumberRequest
-	9,  // 30: WalletAccountService.getBlockByHash:input_type -> BlockHashRequest
-	12, // 31: WalletAccountService.getBlockHeaderByHash:input_type -> BlockHeaderHashRequest
-	13, // 32: WalletAccountService.getBlockHeaderByNumber:input_type -> BlockHeaderNumberRequest
-	16, // 33: WalletAccountService.getBlockHeaderByRange:input_type -> BlockByRangeRequest
-	18, // 34: WalletAccountService.getAccount:input_type -> AccountRequest
-	20, // 35: WalletAccountService.getFee:input_type -> FeeRequest
-	22, // 36: WalletAccountService.SendTx:input_type -> SendTxRequest
-	24, // 37: WalletAccountService.getTxByAddress:input_type -> TxAddressRequest
-	27, // 38: WalletAccountService.getTxByHash:input_type -> TxHashRequest
-	29, // 39: WalletAccountService.buildUnSignTransaction:input_type -> UnSignTransactionRequest
-	31, // 40: WalletAccountService.buildSignedTransaction:input_type -> SignedTransactionRequest
-	33, // 41: WalletAccountService.decodeTransaction:input_type -> DecodeTransactionRequest
-	35, // 42: WalletAccountService.verifySignedTransaction:input_type -> VerifyTransactionRequest
-	37, // 43: WalletAccountService.getExtraData:input_type -> ExtraDataRequest
-	39, // 44: WalletAccountService.getNftListByAddress:input_type -> NftAddressRequest
-	43, // 45: WalletAccountService.getNftCollection:input_type -> NftCollectionRequest
-	45, // 46: WalletAccountService.getNftDetail:input_type -> NftDetailRequest
-	47, // 47: WalletAccountService.getNftHolderList:input_type -> NftHolderListRequest
-	49, // 48: WalletAccountService.getNftTradeHistory:input_type -> NftTradeHistoryRequest
-	51, // 49: WalletAccountService.getAddressNftTradeHistory:input_type -> AddressNftTradeHistoryRequest
-	3,  // 50: WalletAccountService.getSupportChains:output_type -> SupportChainsResponse
-	5,  // 51: WalletAccountService.convertAddress:output_type -> ConvertAddressResponse
-	7,  // 52: WalletAccountService.validAddress:output_type -> ValidAddressResponse
-	11, // 53: WalletAccountService.getBlockByNumber:output_type -> BlockResponse
-	11, // 54: WalletAccountService.getBlockByHash:output_type -> BlockResponse
-	15, // 55: WalletAccountService.getBlockHeaderByHash:output_type -> BlockHeaderResponse
-	15, // 56: WalletAccountService.getBlockHeaderByNumber:output_type -> BlockHeaderResponse
-	17, // 57: WalletAccountService.getBlockHeaderByRange:output_type -> BlockByRangeResponse
-	19, // 58: WalletAccountService.getAccount:output_type -> AccountResponse
-	21, // 59: WalletAccountService.getFee:output_type -> FeeResponse
-	23, // 60: WalletAccountService.SendTx:output_type -> SendTxResponse
-	26, // 61: WalletAccountService.getTxByAddress:output_type -> TxAddressResponse
-	28, // 62: WalletAccountService.getTxByHash:output_type -> TxHashResponse
-	30, // 63: WalletAccountService.buildUnSignTransaction:output_type -> UnSignTransactionResponse
-	32, // 64: WalletAccountService.buildSignedTransaction:output_type -> SignedTransactionResponse
-	34, // 65: WalletAccountService.decodeTransaction:output_type -> DecodeTransactionResponse
-	36, // 66: WalletAccountService.verifySignedTransaction:output_type -> VerifyTransactionResponse
-	38, // 67: WalletAccountService.getExtraData:output_type -> ExtraDataResponse
-	41, // 68: WalletAccountService.getNftListByAddress:output_type -> NftAddressResponse
-	44, // 69: WalletAccountService.getNftCollection:output_type -> NftCollectionResponse
-	46, // 70: WalletAccountService.getNftDetail:output_type -> NftDetailResponse
-	48, // 71: WalletAccountService.getNftHolderList:output_type -> NftHolderListResponse
-	50, // 72: WalletAccountService.getNftTradeHistory:output_type -> NftTradeHistoryResponse
-	52, // 73: WalletAccountService.getAddressNftTradeHistory:output_type -> AddressNftTradeHistoryResponse
-	50, // [50:74] is the sub-list for method output_type
-	26, // [26:50] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	22, // 10: HdWallet.slow_fee:type_name -> Eip1559Wallet
+	22, // 11: HdWallet.normal_fee:type_name -> Eip1559Wallet
+	22, // 12: HdWallet.fast_fee:type_name -> Eip1559Wallet
+	0,  // 13: FeeResponse.code:type_name -> ReturnCode
+	20, // 14: FeeResponse.hdWallet:type_name -> HdWallet
+	21, // 15: FeeResponse.legacyWallet:type_name -> LegacyWallet
+	22, // 16: FeeResponse.eip1559Wallet:type_name -> Eip1559Wallet
+	0,  // 17: SendTxResponse.code:type_name -> ReturnCode
+	1,  // 18: TxMessage.status:type_name -> TxStatus
+	0,  // 19: TxAddressResponse.code:type_name -> ReturnCode
+	28, // 20: TxAddressResponse.tx:type_name -> TxMessage
+	0,  // 21: TxHashResponse.code:type_name -> ReturnCode
+	28, // 22: TxHashResponse.tx:type_name -> TxMessage
+	0,  // 23: UnSignTransactionResponse.code:type_name -> ReturnCode
+	0,  // 24: SignedTransactionResponse.code:type_name -> ReturnCode
+	0,  // 25: DecodeTransactionResponse.code:type_name -> ReturnCode
+	0,  // 26: VerifyTransactionResponse.code:type_name -> ReturnCode
+	0,  // 27: ExtraDataResponse.code:type_name -> ReturnCode
+	0,  // 28: NftAddressResponse.code:type_name -> ReturnCode
+	43, // 29: NftAddressResponse.nft_info:type_name -> NftMessage
+	0,  // 30: NftCollectionResponse.code:type_name -> ReturnCode
+	45, // 31: NftCollectionResponse.nft_collection_message:type_name -> NftCollectionMessage
+	2,  // 32: WalletAccountService.getSupportChains:input_type -> SupportChainsRequest
+	4,  // 33: WalletAccountService.convertAddress:input_type -> ConvertAddressRequest
+	6,  // 34: WalletAccountService.validAddress:input_type -> ValidAddressRequest
+	8,  // 35: WalletAccountService.getBlockByNumber:input_type -> BlockNumberRequest
+	9,  // 36: WalletAccountService.getBlockByHash:input_type -> BlockHashRequest
+	12, // 37: WalletAccountService.getBlockHeaderByHash:input_type -> BlockHeaderHashRequest
+	13, // 38: WalletAccountService.getBlockHeaderByNumber:input_type -> BlockHeaderNumberRequest
+	16, // 39: WalletAccountService.getBlockHeaderByRange:input_type -> BlockByRangeRequest
+	18, // 40: WalletAccountService.getAccount:input_type -> AccountRequest
+	23, // 41: WalletAccountService.getFee:input_type -> FeeRequest
+	25, // 42: WalletAccountService.SendTx:input_type -> SendTxRequest
+	27, // 43: WalletAccountService.getTxByAddress:input_type -> TxAddressRequest
+	30, // 44: WalletAccountService.getTxByHash:input_type -> TxHashRequest
+	32, // 45: WalletAccountService.buildUnSignTransaction:input_type -> UnSignTransactionRequest
+	34, // 46: WalletAccountService.buildSignedTransaction:input_type -> SignedTransactionRequest
+	36, // 47: WalletAccountService.decodeTransaction:input_type -> DecodeTransactionRequest
+	38, // 48: WalletAccountService.verifySignedTransaction:input_type -> VerifyTransactionRequest
+	40, // 49: WalletAccountService.getExtraData:input_type -> ExtraDataRequest
+	42, // 50: WalletAccountService.getNftListByAddress:input_type -> NftAddressRequest
+	46, // 51: WalletAccountService.getNftCollection:input_type -> NftCollectionRequest
+	48, // 52: WalletAccountService.getNftDetail:input_type -> NftDetailRequest
+	50, // 53: WalletAccountService.getNftHolderList:input_type -> NftHolderListRequest
+	52, // 54: WalletAccountService.getNftTradeHistory:input_type -> NftTradeHistoryRequest
+	54, // 55: WalletAccountService.getAddressNftTradeHistory:input_type -> AddressNftTradeHistoryRequest
+	3,  // 56: WalletAccountService.getSupportChains:output_type -> SupportChainsResponse
+	5,  // 57: WalletAccountService.convertAddress:output_type -> ConvertAddressResponse
+	7,  // 58: WalletAccountService.validAddress:output_type -> ValidAddressResponse
+	11, // 59: WalletAccountService.getBlockByNumber:output_type -> BlockResponse
+	11, // 60: WalletAccountService.getBlockByHash:output_type -> BlockResponse
+	15, // 61: WalletAccountService.getBlockHeaderByHash:output_type -> BlockHeaderResponse
+	15, // 62: WalletAccountService.getBlockHeaderByNumber:output_type -> BlockHeaderResponse
+	17, // 63: WalletAccountService.getBlockHeaderByRange:output_type -> BlockByRangeResponse
+	19, // 64: WalletAccountService.getAccount:output_type -> AccountResponse
+	24, // 65: WalletAccountService.getFee:output_type -> FeeResponse
+	26, // 66: WalletAccountService.SendTx:output_type -> SendTxResponse
+	29, // 67: WalletAccountService.getTxByAddress:output_type -> TxAddressResponse
+	31, // 68: WalletAccountService.getTxByHash:output_type -> TxHashResponse
+	33, // 69: WalletAccountService.buildUnSignTransaction:output_type -> UnSignTransactionResponse
+	35, // 70: WalletAccountService.buildSignedTransaction:output_type -> SignedTransactionResponse
+	37, // 71: WalletAccountService.decodeTransaction:output_type -> DecodeTransactionResponse
+	39, // 72: WalletAccountService.verifySignedTransaction:output_type -> VerifyTransactionResponse
+	41, // 73: WalletAccountService.getExtraData:output_type -> ExtraDataResponse
+	44, // 74: WalletAccountService.getNftListByAddress:output_type -> NftAddressResponse
+	47, // 75: WalletAccountService.getNftCollection:output_type -> NftCollectionResponse
+	49, // 76: WalletAccountService.getNftDetail:output_type -> NftDetailResponse
+	51, // 77: WalletAccountService.getNftHolderList:output_type -> NftHolderListResponse
+	53, // 78: WalletAccountService.getNftTradeHistory:output_type -> NftTradeHistoryResponse
+	55, // 79: WalletAccountService.getAddressNftTradeHistory:output_type -> AddressNftTradeHistoryResponse
+	56, // [56:80] is the sub-list for method output_type
+	32, // [32:56] is the sub-list for method input_type
+	32, // [32:32] is the sub-list for extension type_name
+	32, // [32:32] is the sub-list for extension extendee
+	0,  // [0:32] is the sub-list for field type_name
 }
 
 func init() { file_protobuf_account_proto_init() }
@@ -4236,7 +4428,7 @@ func file_protobuf_account_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_protobuf_account_proto_rawDesc), len(file_protobuf_account_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   51,
+			NumMessages:   54,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

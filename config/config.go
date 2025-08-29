@@ -28,7 +28,7 @@ type WalletNode struct {
 	Arbi Node `yaml:"arbi"`
 	Op   Node `yaml:"op"`
 	Sol  Node `yaml:"solana"`
-	base Node `yaml:"evmbase"`
+	Base Node `yaml:"evmbase"`
 }
 
 type Config struct {

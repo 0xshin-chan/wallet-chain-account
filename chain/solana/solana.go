@@ -279,27 +279,28 @@ func (c ChainAdaptor) GetAccount(ctx context.Context, req *account.AccountReques
 }
 
 func (c ChainAdaptor) GetFee(ctx context.Context, req *account.FeeRequest) (*account.FeeResponse, error) {
-	response := &account.FeeResponse{Code: account.ReturnCode_ERROR}
-	baseFee, err := c.solCli.GetFeeForMessage(req.RawTx)
-	if err != nil {
-		err := fmt.Errorf("GetFee GetFeeForMessage failed: %w", err)
-		response.Msg = err.Error()
-		return nil, err
-	}
-	priorityFees, err := c.solCli.GetRecentPrioritizationFees()
-	if err != nil {
-		err := fmt.Errorf("GetFee GetRecentPrioritizationFees failed: %w", err)
-		response.Msg = err.Error()
-		return nil, err
-	}
-	priorityFee := GetSuggestedPriorityFee(priorityFees)
-	slowFee := baseFee + uint64(float64(priorityFee)*0.75)
-	normalFee := baseFee + priorityFee
-	fastFee := baseFee + uint64(float64(priorityFee)*1.25)
-	response.SlowFee = strconv.FormatUint(slowFee, 10)
-	response.NormalFee = strconv.FormatUint(normalFee, 10)
-	response.FastFee = strconv.FormatUint(fastFee, 10)
-	return response, nil
+	//response := &account.FeeResponse{Code: account.ReturnCode_ERROR}
+	//baseFee, err := c.solCli.GetFeeForMessage(req.RawTx)
+	//if err != nil {
+	//	err := fmt.Errorf("GetFee GetFeeForMessage failed: %w", err)
+	//	response.Msg = err.Error()
+	//	return nil, err
+	//}
+	//priorityFees, err := c.solCli.GetRecentPrioritizationFees()
+	//if err != nil {
+	//	err := fmt.Errorf("GetFee GetRecentPrioritizationFees failed: %w", err)
+	//	response.Msg = err.Error()
+	//	return nil, err
+	//}
+	//priorityFee := GetSuggestedPriorityFee(priorityFees)
+	//slowFee := baseFee + uint64(float64(priorityFee)*0.75)
+	//normalFee := baseFee + priorityFee
+	//fastFee := baseFee + uint64(float64(priorityFee)*1.25)
+	//response.SlowFee = strconv.FormatUint(slowFee, 10)
+	//response.NormalFee = strconv.FormatUint(normalFee, 10)
+	//response.FastFee = strconv.FormatUint(fastFee, 10)
+	//return response, nil
+	return nil, nil
 }
 
 func (c ChainAdaptor) SendTx(ctx context.Context, req *account.SendTxRequest) (*account.SendTxResponse, error) {
