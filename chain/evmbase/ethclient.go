@@ -15,9 +15,9 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/rpc"
 
-	"github.com/huahaiwudi/wallet-chain-account/common/global_const"
-	"github.com/huahaiwudi/wallet-chain-account/common/helpers"
-	"github.com/huahaiwudi/wallet-chain-account/common/retry"
+	"github.com/0xshin-chan/wallet-chain-account/common/global_const"
+	"github.com/0xshin-chan/wallet-chain-account/common/helpers"
+	"github.com/0xshin-chan/wallet-chain-account/common/retry"
 )
 
 const (

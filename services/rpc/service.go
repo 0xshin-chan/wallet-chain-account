@@ -3,10 +3,10 @@ package rpc
 import (
 	"context"
 	"fmt"
+	"github.com/0xshin-chan/wallet-chain-account/chaindispatcher"
+	"github.com/0xshin-chan/wallet-chain-account/config"
+	"github.com/0xshin-chan/wallet-chain-account/protobuf/account"
 	"github.com/ethereum/go-ethereum/log"
-	"github.com/huahaiwudi/wallet-chain-account/chaindispatcher"
-	"github.com/huahaiwudi/wallet-chain-account/config"
-	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"net"

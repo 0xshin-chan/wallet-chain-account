@@ -25,11 +25,11 @@ import (
 
 	account2 "github.com/dapplink-labs/chain-explorer-api/common/account"
 
-	"github.com/huahaiwudi/wallet-chain-account/chain"
-	"github.com/huahaiwudi/wallet-chain-account/chain/evmbase"
-	"github.com/huahaiwudi/wallet-chain-account/common/util"
-	"github.com/huahaiwudi/wallet-chain-account/config"
-	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
+	"github.com/0xshin-chan/wallet-chain-account/chain"
+	"github.com/0xshin-chan/wallet-chain-account/chain/evmbase"
+	"github.com/0xshin-chan/wallet-chain-account/common/util"
+	"github.com/0xshin-chan/wallet-chain-account/config"
+	"github.com/0xshin-chan/wallet-chain-account/protobuf/account"
 )
 
 const ChainName = "Base"
@@ -334,29 +334,30 @@ func (c ChainAdaptor) GetAccount(ctx context.Context, req *account.AccountReques
 }
 
 func (c *ChainAdaptor) GetFee(ctx context.Context, req *account.FeeRequest) (*account.FeeResponse, error) {
-	gasPrice, err := c.ethClient.SuggestGasPrice()
-	if err != nil {
-		log.Error("get gas price failed", "err", err)
-		return &account.FeeResponse{
-			Code: account.ReturnCode_ERROR,
-			Msg:  "get suggest gas price fail",
-		}, nil
-	}
-	gasTipCap, err := c.ethClient.SuggestGasTipCap()
-	if err != nil {
-		log.Error("get gas price failed", "err", err)
-		return &account.FeeResponse{
-			Code: account.ReturnCode_ERROR,
-			Msg:  "get suggest gas price fail",
-		}, nil
-	}
-	return &account.FeeResponse{
-		Code:      account.ReturnCode_SUCCESS,
-		Msg:       "get gas price success",
-		SlowFee:   gasPrice.String() + "|" + gasTipCap.String(),
-		NormalFee: gasPrice.String() + "|" + gasTipCap.String() + "|" + "*2",
-		FastFee:   gasPrice.String() + "|" + gasTipCap.String() + "|" + "*3",
-	}, nil
+	//gasPrice, err := c.ethClient.SuggestGasPrice()
+	//if err != nil {
+	//	log.Error("get gas price failed", "err", err)
+	//	return &account.FeeResponse{
+	//		Code: account.ReturnCode_ERROR,
+	//		Msg:  "get suggest gas price fail",
+	//	}, nil
+	//}
+	//gasTipCap, err := c.ethClient.SuggestGasTipCap()
+	//if err != nil {
+	//	log.Error("get gas price failed", "err", err)
+	//	return &account.FeeResponse{
+	//		Code: account.ReturnCode_ERROR,
+	//		Msg:  "get suggest gas price fail",
+	//	}, nil
+	//}
+	//return &account.FeeResponse{
+	//	Code:      account.ReturnCode_SUCCESS,
+	//	Msg:       "get gas price success",
+	//	SlowFee:   gasPrice.String() + "|" + gasTipCap.String(),
+	//	NormalFee: gasPrice.String() + "|" + gasTipCap.String() + "|" + "*2",
+	//	FastFee:   gasPrice.String() + "|" + gasTipCap.String() + "|" + "*3",
+	//}, nil
+	return nil, nil
 }
 
 func (c *ChainAdaptor) SendTx(ctx context.Context, req *account.SendTxRequest) (*account.SendTxResponse, error) {

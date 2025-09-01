@@ -3,8 +3,8 @@ package routes
 import (
 	"github.com/go-chi/chi/v5"
 
-	"github.com/huahaiwudi/wallet-chain-account/cache"
-	"github.com/huahaiwudi/wallet-chain-account/services/http/service"
+	"github.com/0xshin-chan/wallet-chain-account/cache"
+	"github.com/0xshin-chan/wallet-chain-account/services/http/service"
 )
 
 type Routes struct {

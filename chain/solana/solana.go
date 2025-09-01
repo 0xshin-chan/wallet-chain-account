@@ -21,10 +21,10 @@ import (
 	"github.com/gagliardetto/solana-go/programs/system"
 	"github.com/gagliardetto/solana-go/programs/token"
 
+	"github.com/0xshin-chan/wallet-chain-account/chain"
+	"github.com/0xshin-chan/wallet-chain-account/config"
+	"github.com/0xshin-chan/wallet-chain-account/protobuf/account"
 	account2 "github.com/dapplink-labs/chain-explorer-api/common/account"
-	"github.com/huahaiwudi/wallet-chain-account/chain"
-	"github.com/huahaiwudi/wallet-chain-account/config"
-	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
 )
 
 const ChainName = "Solana"

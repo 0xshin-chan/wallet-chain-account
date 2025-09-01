@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/huahaiwudi/wallet-chain-account/services/http/models"
+	"github.com/0xshin-chan/wallet-chain-account/services/http/models"
 	"net/http"
 	"strconv"
 

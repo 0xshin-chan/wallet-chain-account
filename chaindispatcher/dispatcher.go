@@ -2,12 +2,12 @@ package chaindispatcher
 
 import (
 	"context"
+	"github.com/0xshin-chan/wallet-chain-account/chain"
+	"github.com/0xshin-chan/wallet-chain-account/chain/ethereum"
+	"github.com/0xshin-chan/wallet-chain-account/chain/solana"
+	"github.com/0xshin-chan/wallet-chain-account/config"
+	"github.com/0xshin-chan/wallet-chain-account/protobuf/account"
 	"github.com/ethereum/go-ethereum/log"
-	"github.com/huahaiwudi/wallet-chain-account/chain"
-	"github.com/huahaiwudi/wallet-chain-account/chain/ethereum"
-	"github.com/huahaiwudi/wallet-chain-account/chain/solana"
-	"github.com/huahaiwudi/wallet-chain-account/config"
-	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

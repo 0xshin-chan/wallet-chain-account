@@ -2,7 +2,7 @@ package chain
 
 import (
 	"context"
-	"github.com/huahaiwudi/wallet-chain-account/protobuf/account"
+	"github.com/0xshin-chan/wallet-chain-account/protobuf/account"
 )
 
 type IChainAdaptor interface {

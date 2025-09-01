@@ -1,4 +1,4 @@
-module github.com/huahaiwudi/wallet-chain-account
+module github.com/0xshin-chan/wallet-chain-account
 
 go 1.23.4
 

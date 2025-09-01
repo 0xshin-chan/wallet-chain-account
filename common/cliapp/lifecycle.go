@@ -7,7 +7,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"os"
 
-	"github.com/huahaiwudi/wallet-chain-account/common/opio"
+	"github.com/0xshin-chan/wallet-chain-account/common/opio"
 )
 
 type Lifecycle interface {
