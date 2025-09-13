@@ -78,7 +78,7 @@ func (c ChainAdaptor) ConvertAddress(ctx context.Context, req *account.ConvertAd
 	}
 	address := common.BytesToAddress(crypto.Keccak256(publicKeyBytes[1:])[12:])
 	return &account.ConvertAddressResponse{
-		Code:    account.ReturnCode_ERROR,
+		Code:    account.ReturnCode_SUCCESS,
 		Msg:     "convert address success",
 		Address: address.String(),
 	}, nil
@@ -381,6 +381,7 @@ func (c ChainAdaptor) GetAccount(ctx context.Context, req *account.AccountReques
 }
 
 func (c ChainAdaptor) GetFee(ctx context.Context, req *account.FeeRequest) (*account.FeeResponse, error) {
+	blockInfo, _ := c.ethClient.BlockByNumber(nil)
 	gasPrice, err := c.ethClient.SuggestGasPrice()
 	if err != nil {
 		log.Error("get gas price failed", "err", err)
@@ -403,9 +404,12 @@ func (c ChainAdaptor) GetFee(ctx context.Context, req *account.FeeRequest) (*acc
 		GasPrice: gasPrice.String(),
 		GasLimit: TokenGasLimit,
 	}
+	baseFee, _ := new(big.Int).SetString(blockInfo.BaseFee[2:], 16)
+	doubleBaseFee := new(big.Int).Mul(baseFee, big.NewInt(2))
+	maxFeePerGas := new(big.Int).Add(doubleBaseFee, gasTipCap)
 	eip1559w := &account.Eip1559Wallet{
 		GasLimit:       TokenGasLimit,
-		MaxFeePerGas:   gasPrice.String(),
+		MaxFeePerGas:   maxFeePerGas.String(),
 		MaxPriorityFee: gasTipCap.String(),
 	}
 	hdWallet := &account.HdWallet{ // todo: 使用 GasOracle
